@@ -68,7 +68,7 @@ class ViewOrders extends Component
 
     public function getOrdersProperty()
     {
-        return Order::has('o_city','orderProduct')->with('o_city','orderProduct')->select('*','orders.id as o_id','orders.created_at as o_date')->leftJoin('products','products.id','orders.product_id')
+        return Order::has('o_city','orderProduct')->with('o_city','orderProduct')->select('*','orders.id as o_id','orders.created_at as o_date')
         ->when(auth()->user()->role=='seller',function($q){ 
             return $q->where('orders.user_id',auth()->user()->id);
         })

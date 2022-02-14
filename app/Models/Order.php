@@ -36,8 +36,6 @@ class Order extends Model
         return $this->hasMany(OrderProduct::class,'order_id','id');
     }
 
-
-
     protected static $logAttributes = ['id','order_status'];
 
     protected static $logName = "Order";
